@@ -308,10 +308,25 @@ footer {
         --nav-height: 20px;
     }
 
+    main {
+        padding: 10px 0 44px;
+    }
+
     section {
-        margin: 18px 12px;
-        padding: 18px;
-        border-radius: 14px;
+        margin: 0;
+        padding: 18px 16px;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        background: rgba(8, 8, 8, 0.64);
+    }
+
+    section:first-of-type {
+        margin-top: 0;
+    }
+
+    section + section {
+        border-top: 0;
     }
 
     nav {
@@ -385,7 +400,7 @@ footer {
 
     .hero {
         min-height: 62vh;
-        padding: 76px 0 54px;
+        padding: 76px 0 42px;
     }
 
     .hero h1 {
@@ -430,7 +445,6 @@ footer {
     }
 
     section {
-        margin: 14px 8px;
         padding: 16px 14px;
     }
 

@@ -305,7 +305,7 @@ footer {
 
 @media (max-width: 720px) {
     :root {
-        --nav-height: 64px;
+        --nav-height: 20px;
     }
 
     section {
@@ -314,13 +314,32 @@ footer {
         border-radius: 14px;
     }
 
-    nav, footer {
+    nav {
+        padding: 0;
+    }
+
+    footer {
         padding: 12px 14px;
+    }
+
+    .top-nav {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        left: auto;
+        min-height: 0;
+        z-index: 40;
+        background: transparent;
+        border-bottom: 0;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
     .top-nav .nav-inner {
         justify-content: flex-end;
         position: relative;
+        padding: 0;
+        width: auto;
     }
 
     .nav-toggle {

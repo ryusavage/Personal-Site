@@ -84,6 +84,71 @@ header, nav, footer {
     -webkit-backdrop-filter: blur(16px);
 }
 
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0 80px;
+    background: radial-gradient(circle at top, rgba(141, 193, 108, 0.28), transparent 55%),
+                radial-gradient(circle at bottom, rgba(0, 0, 0, 0.36), transparent 60%),
+                linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(10, 10, 10, 0.95));
+}
+
+.hero__content {
+    text-align: center;
+    max-width: 840px;
+}
+
+.hero h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    margin: 0 0 18px;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 760px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(141, 193, 108, 0.25);
+    color: rgba(255, 255, 255, 0.96);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+    background: rgba(141, 193, 108, 0.35);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
 .top-nav {
     position: sticky;
     top: 0;
@@ -119,7 +184,7 @@ nav {
 
 header {
     color: var(--text);
-    padding: 24px 28px;
+    padding: 0;
     text-align: center;
 }
 
@@ -144,6 +209,14 @@ footer {
 
     nav, header, footer {
         padding: 16px 18px;
+    }
+
+    .hero {
+        padding: 96px 0 60px;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
     }
 }
 

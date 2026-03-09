@@ -8,13 +8,16 @@
     --text: rgba(255, 255, 255, 0.92);
     --text-muted: rgba(255, 255, 255, 0.75);
     --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    --nav-height: 72px;
 }
 
-html, body {
+html {
     height: 100%;
+    scroll-padding-top: var(--nav-height);
 }
 
 body {
+    height: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
@@ -37,13 +40,22 @@ body {
 }
 
 /* Layout */
+main {
+    padding: 0 0 60px;
+}
+
 section {
-    padding: 24px;
-    margin: 24px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 34px 30px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
     border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: var(--shadow);
+}
+
+section:first-of-type {
+    margin-top: 72px;
 }
 
 .project-card {
@@ -53,6 +65,13 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.06);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
 }
 
 /* Typography */
@@ -91,7 +110,7 @@ header, nav, footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 120px 0 80px;
+    padding: 120px 0 140px;
     background: radial-gradient(circle at top, rgba(141, 193, 108, 0.28), transparent 55%),
                 radial-gradient(circle at bottom, rgba(0, 0, 0, 0.36), transparent 60%),
                 linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(10, 10, 10, 0.95));
@@ -152,7 +171,13 @@ header, nav, footer {
 .top-nav {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    min-height: var(--nav-height);
+    display: flex;
+    align-items: center;
 }
 
 .top-nav .nav-list {

@@ -1,7 +1,18 @@
-const projectsLink = document.querySelector("a[href='#projects']");
-if (projectsLink) {
-  projectsLink.addEventListener("click", (event) => {
+const pageSectionLinks = document.querySelectorAll("a[href^='#']");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+pageSectionLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const targetId = link.getAttribute("href");
+    if (!targetId || targetId === "#") return;
+
+    const targetSection = document.querySelector(targetId);
+    if (!targetSection) return;
+
     event.preventDefault();
-    document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
+    targetSection.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start",
+    });
   });
-}
+});

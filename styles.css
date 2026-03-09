@@ -65,10 +65,12 @@ section:first-of-type {
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.06);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
-    on hover {
-        background: rgba(141, 193, 108, 0.22);
-        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
-    }
+    transition: background 150ms ease, box-shadow 150ms ease;
+}
+
+.project-card:hover {
+    background: rgba(141, 193, 108, 0.22);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
 }
 
 .projects-grid {

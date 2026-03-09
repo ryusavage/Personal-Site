@@ -1,18 +1,31 @@
-const pageSectionLinks = document.querySelectorAll("a[href^='#']");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-pageSectionLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const targetId = link.getAttribute("href");
-    if (!targetId || targetId === "#") return;
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href*='#']");
+  if (!link) return;
 
-    const targetSection = document.querySelector(targetId);
-    if (!targetSection) return;
+  const url = new URL(link.href, window.location.href);
+  const samePage =
+    url.origin === window.location.origin &&
+    url.pathname === window.location.pathname;
 
-    event.preventDefault();
-    targetSection.scrollIntoView({
-      behavior: reduceMotion ? "auto" : "smooth",
-      block: "start",
-    });
+  if (!samePage || !url.hash || url.hash === "#") return;
+
+  const targetSection = document.querySelector(url.hash);
+  if (!targetSection) return;
+
+  event.preventDefault();
+
+  const navOffset =
+    Number.parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue("--nav-height"),
+      10
+    ) || 0;
+  const targetY = targetSection.getBoundingClientRect().top + window.scrollY - navOffset;
+
+  window.scrollTo({
+    top: targetY,
+    behavior: reduceMotion ? "auto" : "smooth",
   });
+  history.replaceState(null, "", url.hash);
 });

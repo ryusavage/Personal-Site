@@ -84,6 +84,34 @@ header, nav, footer {
     -webkit-backdrop-filter: blur(16px);
 }
 
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.top-nav .nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.top-nav .nav-list li a {
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    transition: background 160ms ease, transform 160ms ease;
+}
+
+.top-nav .nav-list li a:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateY(-1px);
+}
+
 nav {
     color: var(--text);
     padding: 18px 28px;

@@ -29,3 +29,28 @@ document.addEventListener("click", (event) => {
   });
   history.replaceState(null, "", url.hash);
 });
+
+const revealItems = document.querySelectorAll("main section, .project-card");
+
+if (reduceMotion) {
+  revealItems.forEach((item) => item.classList.add("reveal-in"));
+} else {
+  revealItems.forEach((item) => item.classList.add("reveal-init"));
+
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("reveal-in");
+        entry.target.classList.remove("reveal-init");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.2,
+      rootMargin: "0px 0px -40px 0px",
+    }
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+}

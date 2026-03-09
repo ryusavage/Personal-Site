@@ -1,4 +1,35 @@
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const topNav = document.querySelector(".top-nav");
+const navToggle = document.querySelector(".nav-toggle");
+const primaryNav = document.getElementById("primary-nav");
+
+const closeNavMenu = () => {
+  if (!topNav || !navToggle) return;
+  topNav.classList.remove("nav-open");
+  navToggle.setAttribute("aria-expanded", "false");
+};
+
+if (topNav && navToggle && primaryNav) {
+  navToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    const isOpen = topNav.classList.toggle("nav-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  primaryNav.addEventListener("click", (event) => {
+    if (!event.target.closest("a")) return;
+    closeNavMenu();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (topNav.contains(event.target)) return;
+    closeNavMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720) closeNavMenu();
+  });
+}
 
 document.addEventListener("click", (event) => {
   const link = event.target.closest("a[href*='#']");

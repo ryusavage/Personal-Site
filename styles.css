@@ -65,12 +65,15 @@ section:first-of-type {
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.06);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
-    transition: background 150ms ease, box-shadow 150ms ease;
+    transition: transform 150ms ease, background 150ms ease, box-shadow 150ms ease;
+    cursor: pointer;
+    will-change: transform, box-shadow, background;
 }
 
 .project-card:hover {
-    background: rgba(141, 193, 108, 0.22);
-    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35);
+    transform: translateY(-5px);
+    background: rgba(141, 193, 108, 0.28);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
 }
 
 .projects-grid {
@@ -160,6 +163,7 @@ header, nav, footer {
     color: rgba(255, 255, 255, 0.96);
     font-weight: 600;
     text-decoration: none;
+    cursor: pointer;
     transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
 }
 
@@ -201,6 +205,7 @@ header, nav, footer {
     padding: 0.6rem 1rem;
     border-radius: 999px;
     transition: background 160ms ease, transform 160ms ease;
+    cursor: pointer;
 }
 
 .top-nav .nav-list li a:hover {

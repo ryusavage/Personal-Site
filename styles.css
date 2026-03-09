@@ -9,6 +9,8 @@
     --surface: rgba(255, 255, 255, 0.06);
     --surface-strong: rgba(255, 255, 255, 0.1);
     --surface-border: rgba(255, 255, 255, 0.16);
+    --section-surface: radial-gradient(circle at 12% 18%, rgba(141, 193, 108, 0.12), transparent 56%),
+                       linear-gradient(165deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.03));
 }
 
 *,
@@ -50,11 +52,16 @@ section {
     max-width: 1100px;
     margin: 40px auto;
     padding: 34px 30px;
-    background: var(--surface);
+    background: var(--section-surface);
     border-radius: 18px;
     border: 1px solid var(--surface-border);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+}
+
+#about,
+#projects {
+    background: var(--section-surface);
 }
 
 section:first-of-type {
@@ -305,7 +312,7 @@ footer {
         border-radius: 0;
         border-left: 0;
         border-right: 0;
-        background: var(--surface);
+        background: var(--section-surface);
     }
 
     section:first-of-type {

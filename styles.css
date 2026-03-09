@@ -61,10 +61,10 @@ section {
     max-width: 1100px;
     margin: 40px auto;
     padding: 34px 30px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
+    background: transparent;
     border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: none;
 }
 
 section:first-of-type {
@@ -120,10 +120,10 @@ a:hover {
 
 /* Header / Nav / Footer */
 header, nav, footer {
-    background: rgba(0, 0, 0, 0.55);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: transparent;
+    border-bottom: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 .hero {
@@ -134,9 +134,7 @@ header, nav, footer {
     align-items: center;
     justify-content: center;
     padding: 120px 0 140px;
-    background: radial-gradient(circle at top, rgba(141, 193, 108, 0.28), transparent 55%),
-                radial-gradient(circle at bottom, rgba(0, 0, 0, 0.36), transparent 60%),
-                linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(10, 10, 10, 0.95));
+    background: transparent;
 }
 
 .hero__content {
@@ -196,9 +194,9 @@ header, nav, footer {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     min-height: var(--nav-height);
     display: flex;
     align-items: center;
@@ -318,7 +316,7 @@ footer {
         border-radius: 0;
         border-left: 0;
         border-right: 0;
-        background: rgba(8, 8, 8, 0.64);
+        background: transparent;
     }
 
     section:first-of-type {
